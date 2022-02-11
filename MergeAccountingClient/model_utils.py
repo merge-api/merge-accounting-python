@@ -1484,6 +1484,9 @@ def model_to_dict(model_instance, serialize=True):
         serialize (bool): if True, the keys in the dict will be values from
             attribute_map
     """
+    if isinstance(model_instance, dict):
+        return model_instance
+
     result = {}
 
     model_instances = [model_instance]
