@@ -26,6 +26,7 @@ from MergeAccountingClient.api.company_info_api import CompanyInfoApi
 from MergeAccountingClient.api.contacts_api import ContactsApi
 from MergeAccountingClient.api.credit_notes_api import CreditNotesApi
 from MergeAccountingClient.api.delete_account_api import DeleteAccountApi
+from MergeAccountingClient.api.expenses_api import ExpensesApi
 from MergeAccountingClient.api.force_resync_api import ForceResyncApi
 from MergeAccountingClient.api.generate_key_api import GenerateKeyApi
 from MergeAccountingClient.api.income_statements_api import IncomeStatementsApi

@@ -1,20 +1,19 @@
-# MergeAccountingClient.InvoicesApi
+# MergeAccountingClient.ExpensesApi
 
 All URIs are relative to *https://api.merge.dev/api/accounting/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**invoices_create**](InvoicesApi.md#invoices_create) | **POST** /invoices | 
-[**invoices_list**](InvoicesApi.md#invoices_list) | **GET** /invoices | 
-[**invoices_retrieve**](InvoicesApi.md#invoices_retrieve) | **GET** /invoices/{id} | 
+[**expenses_list**](ExpensesApi.md#expenses_list) | **GET** /expenses | 
+[**expenses_retrieve**](ExpensesApi.md#expenses_retrieve) | **GET** /expenses/{id} | 
 
 
-# **invoices_create**
-> InvoiceResponse invoices_create(x_account_token, invoice_endpoint_request)
+# **expenses_list**
+> PaginatedExpenseList expenses_list(x_account_token)
 
 
 
-Creates an `Invoice` object with the given values.
+Returns a list of `Expense` objects.
 
 ### Example
 
@@ -22,9 +21,8 @@ Creates an `Invoice` object with the given values.
 ```python
 import time
 import MergeAccountingClient
-from MergeAccountingClient.api import invoices_api
-from MergeAccountingClient.model.invoice_response import InvoiceResponse
-from MergeAccountingClient.model.invoice_endpoint_request import InvoiceEndpointRequest
+from MergeAccountingClient.api import expenses_api
+from MergeAccountingClient.model.paginated_expense_list import PaginatedExpenseList
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/accounting/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -46,120 +44,12 @@ configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with MergeAccountingClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = invoices_api.InvoicesApi(api_client)
+    api_instance = expenses_api.ExpensesApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
-    invoice_endpoint_request = InvoiceEndpointRequest(
-        model=InvoiceRequest(
-            remote_id="990110",
-            type=,
-            contact="022a2bef-57e5-4def-8ed2-7c41bd9a5ed8",
-            number="AIQ12546",
-            issue_date=dateutil_parser('2020-03-31T00:00:00Z'),
-            due_date=dateutil_parser('2020-04-15T00:00:00Z'),
-            paid_on_date=dateutil_parser('2020-04-01T00:00:00Z'),
-            currency=,
-            total_discount=3.14,
-            sub_total=100,
-            total_tax_amount=5,
-            total_amount=105,
-            balance=105,
-            remote_updated_at=dateutil_parser('2020-04-01T00:00:00Z'),
-            payments=["b26fd49a-cbae-470a-a8f8-bcbc119e0390"],
-        ),
-    ) # InvoiceEndpointRequest | 
-    is_debug_mode = True # bool | Whether to include debug fields (such as log file links) in the response. (optional)
-    run_async = True # bool | Whether or not third-party updates should be run asynchronously. (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        api_response = api_instance.invoices_create(x_account_token, invoice_endpoint_request)
-        pprint(api_response)
-    except MergeAccountingClient.ApiException as e:
-        print("Exception when calling InvoicesApi->invoices_create: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        api_response = api_instance.invoices_create(x_account_token, invoice_endpoint_request, is_debug_mode=is_debug_mode, run_async=run_async)
-        pprint(api_response)
-    except MergeAccountingClient.ApiException as e:
-        print("Exception when calling InvoicesApi->invoices_create: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **x_account_token** | **str**| Token identifying the end user. |
- **invoice_endpoint_request** | [**InvoiceEndpointRequest**](InvoiceEndpointRequest.md)|  |
- **is_debug_mode** | **bool**| Whether to include debug fields (such as log file links) in the response. | [optional]
- **run_async** | **bool**| Whether or not third-party updates should be run asynchronously. | [optional]
-
-### Return type
-
-[**InvoiceResponse**](InvoiceResponse.md)
-
-### Authorization
-
-[tokenAuth](../README.md#tokenAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json, application/x-www-form-urlencoded, multipart/form-data
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**201** |  |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **invoices_list**
-> PaginatedInvoiceList invoices_list(x_account_token)
-
-
-
-Returns a list of `Invoice` objects.
-
-### Example
-
-* Api Key Authentication (tokenAuth):
-```python
-import time
-import MergeAccountingClient
-from MergeAccountingClient.api import invoices_api
-from MergeAccountingClient.model.paginated_invoice_list import PaginatedInvoiceList
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.merge.dev/api/accounting/v1
-# See configuration.py for a list of all supported configuration parameters.
-configuration = MergeAccountingClient.Configuration(
-    host = "https://api.merge.dev/api/accounting/v1"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure API key authorization: tokenAuth
-configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
-
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['tokenAuth'] = 'Bearer'
-
-# Enter a context with an instance of the API client
-with MergeAccountingClient.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = invoices_api.InvoicesApi(api_client)
-    x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
-    contact_id = "contact_id_example" # str | If provided, will only return invoices for this contact. (optional)
     created_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created after this datetime. (optional)
     created_before = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects created before this datetime. (optional)
     cursor = "cD0yMDIxLTAxLTA2KzAzJTNBMjQlM0E1My40MzQzMjYlMkIwMCUzQTAw" # str | The pagination cursor value. (optional)
-    expand = "payments,line_items,contact" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    expand = "account,contact" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
     include_deleted_data = True # bool | Whether to include data that was deleted in the third-party service. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
     modified_after = dateutil_parser('1970-01-01T00:00:00.00Z') # datetime | If provided, will only return objects modified after this datetime. (optional)
@@ -169,18 +59,18 @@ with MergeAccountingClient.ApiClient(configuration) as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.invoices_list(x_account_token)
+        api_response = api_instance.expenses_list(x_account_token)
         pprint(api_response)
     except MergeAccountingClient.ApiException as e:
-        print("Exception when calling InvoicesApi->invoices_list: %s\n" % e)
+        print("Exception when calling ExpensesApi->expenses_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.invoices_list(x_account_token, contact_id=contact_id, created_after=created_after, created_before=created_before, cursor=cursor, expand=expand, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
+        api_response = api_instance.expenses_list(x_account_token, created_after=created_after, created_before=created_before, cursor=cursor, expand=expand, include_deleted_data=include_deleted_data, include_remote_data=include_remote_data, modified_after=modified_after, modified_before=modified_before, page_size=page_size, remote_id=remote_id)
         pprint(api_response)
     except MergeAccountingClient.ApiException as e:
-        print("Exception when calling InvoicesApi->invoices_list: %s\n" % e)
+        print("Exception when calling ExpensesApi->expenses_list: %s\n" % e)
 ```
 
 
@@ -189,7 +79,6 @@ with MergeAccountingClient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **x_account_token** | **str**| Token identifying the end user. |
- **contact_id** | **str**| If provided, will only return invoices for this contact. | [optional]
  **created_after** | **datetime**| If provided, will only return objects created after this datetime. | [optional]
  **created_before** | **datetime**| If provided, will only return objects created before this datetime. | [optional]
  **cursor** | **str**| The pagination cursor value. | [optional]
@@ -203,7 +92,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PaginatedInvoiceList**](PaginatedInvoiceList.md)
+[**PaginatedExpenseList**](PaginatedExpenseList.md)
 
 ### Authorization
 
@@ -222,12 +111,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **invoices_retrieve**
-> Invoice invoices_retrieve(x_account_token, id)
+# **expenses_retrieve**
+> Expense expenses_retrieve(x_account_token, id)
 
 
 
-Returns an `Invoice` object with the given `id`.
+Returns an `Expense` object with the given `id`.
 
 ### Example
 
@@ -235,8 +124,8 @@ Returns an `Invoice` object with the given `id`.
 ```python
 import time
 import MergeAccountingClient
-from MergeAccountingClient.api import invoices_api
-from MergeAccountingClient.model.invoice import Invoice
+from MergeAccountingClient.api import expenses_api
+from MergeAccountingClient.model.expense import Expense
 from pprint import pprint
 # Defining the host is optional and defaults to https://api.merge.dev/api/accounting/v1
 # See configuration.py for a list of all supported configuration parameters.
@@ -258,26 +147,26 @@ configuration.api_key['tokenAuth'] = 'YOUR_API_KEY'
 # Enter a context with an instance of the API client
 with MergeAccountingClient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = invoices_api.InvoicesApi(api_client)
+    api_instance = expenses_api.ExpensesApi(api_client)
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     id = "id_example" # str | 
-    expand = "payments,line_items,contact" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
+    expand = "account,contact" # str | Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces. (optional)
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
 
     # example passing only required values which don't have defaults set
     try:
-        api_response = api_instance.invoices_retrieve(x_account_token, id)
+        api_response = api_instance.expenses_retrieve(x_account_token, id)
         pprint(api_response)
     except MergeAccountingClient.ApiException as e:
-        print("Exception when calling InvoicesApi->invoices_retrieve: %s\n" % e)
+        print("Exception when calling ExpensesApi->expenses_retrieve: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.invoices_retrieve(x_account_token, id, expand=expand, include_remote_data=include_remote_data)
+        api_response = api_instance.expenses_retrieve(x_account_token, id, expand=expand, include_remote_data=include_remote_data)
         pprint(api_response)
     except MergeAccountingClient.ApiException as e:
-        print("Exception when calling InvoicesApi->invoices_retrieve: %s\n" % e)
+        print("Exception when calling ExpensesApi->expenses_retrieve: %s\n" % e)
 ```
 
 
@@ -292,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Invoice**](Invoice.md)
+[**Expense**](Expense.md)
 
 ### Authorization
 
