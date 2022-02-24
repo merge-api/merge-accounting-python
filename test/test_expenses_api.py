@@ -12,32 +12,26 @@
 import unittest
 
 import MergeAccountingClient
-from MergeAccountingClient.api.invoices_api import InvoicesApi  # noqa: E501
+from MergeAccountingClient.api.expenses_api import ExpensesApi  # noqa: E501
 
 
-class TestInvoicesApi(unittest.TestCase):
-    """InvoicesApi unit test stubs"""
+class TestExpensesApi(unittest.TestCase):
+    """ExpensesApi unit test stubs"""
 
     def setUp(self):
-        self.api = InvoicesApi()  # noqa: E501
+        self.api = ExpensesApi()  # noqa: E501
 
     def tearDown(self):
         pass
 
-    def test_invoices_create(self):
-        """Test case for invoices_create
+    def test_expenses_list(self):
+        """Test case for expenses_list
 
         """
         pass
 
-    def test_invoices_list(self):
-        """Test case for invoices_list
-
-        """
-        pass
-
-    def test_invoices_retrieve(self):
-        """Test case for invoices_retrieve
+    def test_expenses_retrieve(self):
+        """Test case for expenses_retrieve
 
         """
         pass
