@@ -11,7 +11,7 @@
 
 from setuptools import setup, find_packages  # noqa: H301
 
-NAME = "MergeAccountingClient"
+NAME = "merge-accounting-client"
 VERSION = "1.0.2"
 # To install the library, run the following
 #
