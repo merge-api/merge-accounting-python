@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **urls** | **[str, none_type], none_type** | The company&#39;s urls. | [optional] 
 **addresses** | [**[Address]**](Address.md) |  | [optional] 
 **phone_numbers** | [**[AccountingPhoneNumber]**](AccountingPhoneNumber.md) |  | [optional] 
+**remote_was_deleted** | **bool** | Indicates whether or not this object has been deleted by third party webhooks. | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

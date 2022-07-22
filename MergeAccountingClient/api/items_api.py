@@ -60,11 +60,12 @@ class ItemsApi(object):
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
-                include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
+                include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
                 page_size (int): Number of results to return per page.. [optional]
+                remote_fields (str): Which fields should be returned in non-normalized form.. [optional] if omitted the server will use the default value of "status"
                 remote_id (str, none_type): The API provider's ID for the given object.. [optional]
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -137,6 +138,7 @@ class ItemsApi(object):
                     'modified_after',
                     'modified_before',
                     'page_size',
+                    'remote_fields',
                     'remote_id',
                 ],
                 'required': [
@@ -147,6 +149,7 @@ class ItemsApi(object):
                 ],
                 'enum': [
                     'expand',
+                    'remote_fields',
                 ],
                 'validation': [
                 ]
@@ -160,6 +163,10 @@ class ItemsApi(object):
                         "PURCHASE_ACCOUNT": "purchase_account",
                         "PURCHASE_ACCOUNT,SALES_ACCOUNT": "purchase_account,sales_account",
                         "SALES_ACCOUNT": "sales_account"
+                    },
+                    ('remote_fields',): {
+
+                        "STATUS": "status"
                     },
                 },
                 'openapi_types': {
@@ -183,6 +190,8 @@ class ItemsApi(object):
                         (datetime,),
                     'page_size':
                         (int,),
+                    'remote_fields':
+                        (str,),
                     'remote_id':
                         (str, none_type,),
                 },
@@ -197,6 +206,7 @@ class ItemsApi(object):
                     'modified_after': 'modified_after',
                     'modified_before': 'modified_before',
                     'page_size': 'page_size',
+                    'remote_fields': 'remote_fields',
                     'remote_id': 'remote_id',
                 },
                 'location_map': {
@@ -210,6 +220,7 @@ class ItemsApi(object):
                     'modified_after': 'query',
                     'modified_before': 'query',
                     'page_size': 'query',
+                    'remote_fields': 'query',
                     'remote_id': 'query',
                 },
                 'collection_format_map': {
@@ -247,6 +258,7 @@ class ItemsApi(object):
             Keyword Args:
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+                remote_fields (str): Which fields should be returned in non-normalized form.. [optional] if omitted the server will use the default value of "status"
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -314,6 +326,7 @@ class ItemsApi(object):
                     'id',
                     'expand',
                     'include_remote_data',
+                    'remote_fields',
                 ],
                 'required': [
                     'x_account_token',
@@ -323,6 +336,7 @@ class ItemsApi(object):
                 ],
                 'enum': [
                     'expand',
+                    'remote_fields',
                 ],
                 'validation': [
                 ]
@@ -337,6 +351,10 @@ class ItemsApi(object):
                         "PURCHASE_ACCOUNT,SALES_ACCOUNT": "purchase_account,sales_account",
                         "SALES_ACCOUNT": "sales_account"
                     },
+                    ('remote_fields',): {
+
+                        "STATUS": "status"
+                    },
                 },
                 'openapi_types': {
                     'x_account_token':
@@ -347,18 +365,22 @@ class ItemsApi(object):
                         (str,),
                     'include_remote_data':
                         (bool,),
+                    'remote_fields':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
                     'expand': 'expand',
                     'include_remote_data': 'include_remote_data',
+                    'remote_fields': 'remote_fields',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
                     'expand': 'query',
                     'include_remote_data': 'query',
+                    'remote_fields': 'query',
                 },
                 'collection_format_map': {
                 }

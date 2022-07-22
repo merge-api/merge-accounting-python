@@ -47,6 +47,7 @@ with MergeAccountingClient.ApiClient(configuration) as api_client:
     x_account_token = "X-Account-Token_example" # str | Token identifying the end user.
     id = "id_example" # str | 
     include_remote_data = True # bool | Whether to include the original data Merge fetched from the third-party to produce these models. (optional)
+    remote_fields = "type" # str | Which fields should be returned in non-normalized form. (optional) if omitted the server will use the default value of "type"
 
     # example passing only required values which don't have defaults set
     try:
@@ -58,7 +59,7 @@ with MergeAccountingClient.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     # and optional values
     try:
-        api_response = api_instance.addresses_retrieve(x_account_token, id, include_remote_data=include_remote_data)
+        api_response = api_instance.addresses_retrieve(x_account_token, id, include_remote_data=include_remote_data, remote_fields=remote_fields)
         pprint(api_response)
     except MergeAccountingClient.ApiException as e:
         print("Exception when calling AddressesApi->addresses_retrieve: %s\n" % e)
@@ -72,6 +73,7 @@ Name | Type | Description  | Notes
  **x_account_token** | **str**| Token identifying the end user. |
  **id** | **str**|  |
  **include_remote_data** | **bool**| Whether to include the original data Merge fetched from the third-party to produce these models. | [optional]
+ **remote_fields** | **str**| Which fields should be returned in non-normalized form. | [optional] if omitted the server will use the default value of "type"
 
 ### Return type
 

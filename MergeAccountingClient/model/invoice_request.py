@@ -80,6 +80,7 @@ class InvoiceRequest(ModelNormal):
             'issue_date': (datetime, none_type,),  # noqa: E501
             'due_date': (datetime, none_type,),  # noqa: E501
             'paid_on_date': (datetime, none_type,),  # noqa: E501
+            'memo': (str, none_type,),  # noqa: E501
             'currency': (object, none_type,),  # noqa: E501
             'total_discount': (float, none_type,),  # noqa: E501
             'sub_total': (float, none_type,),  # noqa: E501
@@ -103,6 +104,7 @@ class InvoiceRequest(ModelNormal):
         'issue_date': 'issue_date',  # noqa: E501
         'due_date': 'due_date',  # noqa: E501
         'paid_on_date': 'paid_on_date',  # noqa: E501
+        'memo': 'memo',  # noqa: E501
         'currency': 'currency',  # noqa: E501
         'total_discount': 'total_discount',  # noqa: E501
         'sub_total': 'sub_total',  # noqa: E501
@@ -166,6 +168,7 @@ class InvoiceRequest(ModelNormal):
             issue_date (datetime, none_type): The invoice's issue date.. [optional]  # noqa: E501
             due_date (datetime, none_type): The invoice's due date.. [optional]  # noqa: E501
             paid_on_date (datetime, none_type): The invoice's paid date.. [optional]  # noqa: E501
+            memo (str, none_type): The invoice's private note.. [optional]  # noqa: E501
             currency (object, none_type): The invoice's currency.. [optional]  # noqa: E501
             total_discount (float, none_type): The invoice's total discount.. [optional]  # noqa: E501
             sub_total (float, none_type): The invoice's sub-total.. [optional]  # noqa: E501

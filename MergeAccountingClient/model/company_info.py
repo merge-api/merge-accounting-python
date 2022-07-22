@@ -103,6 +103,7 @@ class CompanyInfo(ModelNormal):
             'urls': ([str, none_type], none_type,),  # noqa: E501
             'addresses': ([Address],),  # noqa: E501
             'phone_numbers': ([AccountingPhoneNumber],),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -124,6 +125,7 @@ class CompanyInfo(ModelNormal):
         'urls': 'urls',  # noqa: E501
         'addresses': 'addresses',  # noqa: E501
         'phone_numbers': 'phone_numbers',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -185,6 +187,7 @@ class CompanyInfo(ModelNormal):
             urls ([str, none_type], none_type): The company's urls.. [optional]  # noqa: E501
             addresses ([Address]): [optional]  # noqa: E501
             phone_numbers ([AccountingPhoneNumber]): [optional]  # noqa: E501
+            remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

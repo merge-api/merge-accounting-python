@@ -88,6 +88,8 @@ class Account(ModelNormal):
             'status': (object, none_type,),  # noqa: E501
             'current_balance': (float, none_type,),  # noqa: E501
             'currency': (object, none_type,),  # noqa: E501
+            'account_number': (str, none_type,),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -106,6 +108,8 @@ class Account(ModelNormal):
         'status': 'status',  # noqa: E501
         'current_balance': 'current_balance',  # noqa: E501
         'currency': 'currency',  # noqa: E501
+        'account_number': 'account_number',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -164,6 +168,8 @@ class Account(ModelNormal):
             status (object, none_type): The account's status.. [optional]  # noqa: E501
             current_balance (float, none_type): The account's current balance.. [optional]  # noqa: E501
             currency (object, none_type): The account's currency.. [optional]  # noqa: E501
+            account_number (str, none_type): The account's number.. [optional]  # noqa: E501
+            remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

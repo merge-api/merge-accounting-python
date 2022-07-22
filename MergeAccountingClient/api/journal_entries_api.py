@@ -25,6 +25,7 @@ from MergeAccountingClient.model_utils import (  # noqa: F401
 from MergeAccountingClient.model.journal_entry import JournalEntry
 from MergeAccountingClient.model.journal_entry_endpoint_request import JournalEntryEndpointRequest
 from MergeAccountingClient.model.journal_entry_response import JournalEntryResponse
+from MergeAccountingClient.model.meta_response import MetaResponse
 from MergeAccountingClient.model.paginated_journal_entry_list import PaginatedJournalEntryList
 
 
@@ -206,7 +207,7 @@ class JournalEntriesApi(object):
                 created_before (datetime): If provided, will only return objects created before this datetime.. [optional]
                 cursor (str): The pagination cursor value.. [optional]
                 expand (str): Which relations should be returned in expanded form. Multiple relation names should be comma separated without spaces.. [optional]
-                include_deleted_data (bool): Whether to include data that was deleted in the third-party service.. [optional]
+                include_deleted_data (bool): Whether to include data that was marked as deleted by third party webhooks.. [optional]
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
                 modified_after (datetime): If provided, will only return objects modified after this datetime.. [optional]
                 modified_before (datetime): If provided, will only return objects modified before this datetime.. [optional]
@@ -369,6 +370,125 @@ class JournalEntriesApi(object):
             },
             api_client=api_client,
             callable=__journal_entries_list
+        )
+
+        def __journal_entries_meta_post_retrieve(
+            self,
+            x_account_token,
+            **kwargs
+        ):
+            """journal_entries_meta_post_retrieve  # noqa: E501
+
+            Returns metadata for `JournalEntry` POSTs.  # noqa: E501
+            This method makes a synchronous HTTP request by default. To make an
+            asynchronous HTTP request, please pass async_req=True
+
+            >>> thread = api.journal_entries_meta_post_retrieve(x_account_token, async_req=True)
+            >>> result = thread.get()
+
+            Args:
+                x_account_token (str): Token identifying the end user.
+
+            Keyword Args:
+                _return_http_data_only (bool): response data without head status
+                    code and headers. Default is True.
+                _preload_content (bool): if False, the urllib3.HTTPResponse object
+                    will be returned without reading/decoding response data.
+                    Default is True.
+                _request_timeout (float/tuple): timeout setting for this request. If one
+                    number provided, it will be total request timeout. It can also
+                    be a pair (tuple) of (connection, read) timeouts.
+                    Default is None.
+                _check_input_type (bool): specifies if type checking
+                    should be done one the data sent to the server.
+                    Default is True.
+                _check_return_type (bool): specifies if type checking
+                    should be done one the data received from the server.
+                    Default is True.
+                _host_index (int/None): specifies the index of the server
+                    that we want to use.
+                    Default is read from the configuration.
+                async_req (bool): execute request asynchronously
+
+            Returns:
+                MetaResponse
+                    If the method is called asynchronously, returns the request
+                    thread.
+            """
+            kwargs['async_req'] = kwargs.get(
+                'async_req', False
+            )
+            kwargs['_return_http_data_only'] = kwargs.get(
+                '_return_http_data_only', True
+            )
+            kwargs['_preload_content'] = kwargs.get(
+                '_preload_content', True
+            )
+            kwargs['_request_timeout'] = kwargs.get(
+                '_request_timeout', None
+            )
+            kwargs['_check_input_type'] = kwargs.get(
+                '_check_input_type', True
+            )
+            kwargs['_check_return_type'] = kwargs.get(
+                '_check_return_type', True
+            )
+            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs['x_account_token'] = \
+                x_account_token
+            return self.call_with_http_info(**kwargs)
+
+        self.journal_entries_meta_post_retrieve = _Endpoint(
+            settings={
+                'response_type': (MetaResponse,),
+                'auth': [
+                    'tokenAuth'
+                ],
+                'endpoint_path': '/journal-entries/meta/post',
+                'operation_id': 'journal_entries_meta_post_retrieve',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'x_account_token',
+                ],
+                'required': [
+                    'x_account_token',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'x_account_token':
+                        (str,),
+                },
+                'attribute_map': {
+                    'x_account_token': 'X-Account-Token',
+                },
+                'location_map': {
+                    'x_account_token': 'header',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client,
+            callable=__journal_entries_meta_post_retrieve
         )
 
         def __journal_entries_retrieve(

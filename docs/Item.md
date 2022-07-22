@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **purchase_account** | **str, none_type** |  | [optional] 
 **sales_account** | **str, none_type** |  | [optional] 
 **remote_updated_at** | **datetime, none_type** | When the third party&#39;s item note was updated. | [optional] 
+**remote_was_deleted** | **bool** | Indicates whether or not this object has been deleted by third party webhooks. | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

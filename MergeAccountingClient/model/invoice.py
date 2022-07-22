@@ -89,6 +89,7 @@ class Invoice(ModelNormal):
             'issue_date': (datetime, none_type,),  # noqa: E501
             'due_date': (datetime, none_type,),  # noqa: E501
             'paid_on_date': (datetime, none_type,),  # noqa: E501
+            'memo': (str, none_type,),  # noqa: E501
             'currency': (object, none_type,),  # noqa: E501
             'total_discount': (float, none_type,),  # noqa: E501
             'sub_total': (float, none_type,),  # noqa: E501
@@ -98,6 +99,7 @@ class Invoice(ModelNormal):
             'remote_updated_at': (datetime, none_type,),  # noqa: E501
             'payments': ([str, none_type],),  # noqa: E501
             'line_items': ([InvoiceLineItem],),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -115,6 +117,7 @@ class Invoice(ModelNormal):
         'issue_date': 'issue_date',  # noqa: E501
         'due_date': 'due_date',  # noqa: E501
         'paid_on_date': 'paid_on_date',  # noqa: E501
+        'memo': 'memo',  # noqa: E501
         'currency': 'currency',  # noqa: E501
         'total_discount': 'total_discount',  # noqa: E501
         'sub_total': 'sub_total',  # noqa: E501
@@ -124,6 +127,7 @@ class Invoice(ModelNormal):
         'remote_updated_at': 'remote_updated_at',  # noqa: E501
         'payments': 'payments',  # noqa: E501
         'line_items': 'line_items',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -181,6 +185,7 @@ class Invoice(ModelNormal):
             issue_date (datetime, none_type): The invoice's issue date.. [optional]  # noqa: E501
             due_date (datetime, none_type): The invoice's due date.. [optional]  # noqa: E501
             paid_on_date (datetime, none_type): The invoice's paid date.. [optional]  # noqa: E501
+            memo (str, none_type): The invoice's private note.. [optional]  # noqa: E501
             currency (object, none_type): The invoice's currency.. [optional]  # noqa: E501
             total_discount (float, none_type): The invoice's total discount.. [optional]  # noqa: E501
             sub_total (float, none_type): The invoice's sub-total.. [optional]  # noqa: E501
@@ -190,6 +195,7 @@ class Invoice(ModelNormal):
             remote_updated_at (datetime, none_type): When the third party's invoice entry was updated.. [optional]  # noqa: E501
             payments ([str, none_type]): Array of `Payment` object IDs.. [optional]  # noqa: E501
             line_items ([InvoiceLineItem]): [optional]  # noqa: E501
+            remote_was_deleted (bool): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

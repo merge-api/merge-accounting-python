@@ -77,6 +77,8 @@ class JournalLine(ModelNormal):
             'account': (str, none_type,),  # noqa: E501
             'net_amount': (float, none_type,),  # noqa: E501
             'tracking_category': (str, none_type,),  # noqa: E501
+            'contact': (str, none_type,),  # noqa: E501
+            'description': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -89,6 +91,8 @@ class JournalLine(ModelNormal):
         'account': 'account',  # noqa: E501
         'net_amount': 'net_amount',  # noqa: E501
         'tracking_category': 'tracking_category',  # noqa: E501
+        'contact': 'contact',  # noqa: E501
+        'description': 'description',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -141,6 +145,8 @@ class JournalLine(ModelNormal):
             account (str, none_type): [optional]  # noqa: E501
             net_amount (float, none_type): The line's net amount.. [optional]  # noqa: E501
             tracking_category (str, none_type): [optional]  # noqa: E501
+            contact (str, none_type): [optional]  # noqa: E501
+            description (str, none_type): The line's description.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

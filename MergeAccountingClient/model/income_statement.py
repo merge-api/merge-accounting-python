@@ -93,6 +93,7 @@ class IncomeStatement(ModelNormal):
             'net_operating_income': (float, none_type,),  # noqa: E501
             'non_operating_expenses': ([ReportItem],),  # noqa: E501
             'net_income': (float, none_type,),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -114,6 +115,7 @@ class IncomeStatement(ModelNormal):
         'net_operating_income': 'net_operating_income',  # noqa: E501
         'non_operating_expenses': 'non_operating_expenses',  # noqa: E501
         'net_income': 'net_income',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -175,6 +177,7 @@ class IncomeStatement(ModelNormal):
             net_operating_income (float, none_type): The income statement's net operating profit.. [optional]  # noqa: E501
             non_operating_expenses ([ReportItem]): [optional]  # noqa: E501
             net_income (float, none_type): The income statement's net income.. [optional]  # noqa: E501
+            remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

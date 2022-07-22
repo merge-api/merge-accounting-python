@@ -7,12 +7,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | [optional] [readonly] 
 **remote_id** | **str, none_type** | The third-party API ID of the matching object. | [optional] 
-**remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 **description** | **str, none_type** | The line item&#39;s description. | [optional] 
 **unit_price** | **float, none_type** | The line item&#39;s unit price. | [optional] 
 **quantity** | **float, none_type** | The line item&#39;s quantity. | [optional] 
 **total_amount** | **float, none_type** | The line item&#39;s total amount. | [optional] 
 **item** | **str, none_type** |  | [optional] 
+**account** | **str, none_type** |  | [optional] 
+**tracking_category** | **str, none_type** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

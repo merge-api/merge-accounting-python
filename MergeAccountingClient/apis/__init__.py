@@ -41,7 +41,9 @@ from MergeAccountingClient.api.payments_api import PaymentsApi
 from MergeAccountingClient.api.phone_numbers_api import PhoneNumbersApi
 from MergeAccountingClient.api.purchase_orders_api import PurchaseOrdersApi
 from MergeAccountingClient.api.regenerate_key_api import RegenerateKeyApi
-from MergeAccountingClient.api.report_items_api import ReportItemsApi
 from MergeAccountingClient.api.sync_status_api import SyncStatusApi
 from MergeAccountingClient.api.tax_rates_api import TaxRatesApi
 from MergeAccountingClient.api.tracking_categories_api import TrackingCategoriesApi
+from MergeAccountingClient.api.transactions_api import TransactionsApi
+from MergeAccountingClient.api.vendor_credits_api import VendorCreditsApi
+from MergeAccountingClient.api.webhook_receivers_api import WebhookReceiversApi

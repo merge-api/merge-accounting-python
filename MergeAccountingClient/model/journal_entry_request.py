@@ -77,6 +77,8 @@ class JournalEntryRequest(ModelNormal):
             'transaction_date': (datetime, none_type,),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
             'payments': ([str, none_type],),  # noqa: E501
+            'memo': (str, none_type,),  # noqa: E501
+            'currency': (object, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -89,6 +91,8 @@ class JournalEntryRequest(ModelNormal):
         'transaction_date': 'transaction_date',  # noqa: E501
         'remote_created_at': 'remote_created_at',  # noqa: E501
         'payments': 'payments',  # noqa: E501
+        'memo': 'memo',  # noqa: E501
+        'currency': 'currency',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -141,6 +145,8 @@ class JournalEntryRequest(ModelNormal):
             transaction_date (datetime, none_type): The journal entry's transaction date.. [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's journal entry was created.. [optional]  # noqa: E501
             payments ([str, none_type]): Array of `Payment` object IDs.. [optional]  # noqa: E501
+            memo (str, none_type): The journal entry's private note.. [optional]  # noqa: E501
+            currency (object, none_type): The journal's currency.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

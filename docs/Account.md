@@ -15,6 +15,8 @@ Name | Type | Description | Notes
 **status** | **object, none_type** | The account&#39;s status. | [optional] 
 **current_balance** | **float, none_type** | The account&#39;s current balance. | [optional] 
 **currency** | **object, none_type** | The account&#39;s currency. | [optional] 
+**account_number** | **str, none_type** | The account&#39;s number. | [optional] 
+**remote_was_deleted** | **bool** | Indicates whether or not this object has been deleted by third party webhooks. | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

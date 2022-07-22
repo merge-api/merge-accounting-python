@@ -28,7 +28,9 @@ from MergeAccountingClient.model_utils import (  # noqa: F401
 )
 
 def lazy_import():
+    from MergeAccountingClient.model.credit_note_line_item import CreditNoteLineItem
     from MergeAccountingClient.model.remote_data import RemoteData
+    globals()['CreditNoteLineItem'] = CreditNoteLineItem
     globals()['RemoteData'] = RemoteData
 
 
@@ -83,12 +85,16 @@ class CreditNote(ModelNormal):
             'remote_data': ([RemoteData], none_type,),  # noqa: E501
             'transaction_date': (datetime, none_type,),  # noqa: E501
             'status': (object, none_type,),  # noqa: E501
+            'number': (str, none_type,),  # noqa: E501
+            'contact': (str, none_type,),  # noqa: E501
             'total_amount': (float, none_type,),  # noqa: E501
             'remaining_credit': (float, none_type,),  # noqa: E501
+            'line_items': ([CreditNoteLineItem],),  # noqa: E501
             'currency': (object, none_type,),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
             'remote_updated_at': (datetime, none_type,),  # noqa: E501
             'payments': ([str, none_type],),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -102,12 +108,16 @@ class CreditNote(ModelNormal):
         'remote_data': 'remote_data',  # noqa: E501
         'transaction_date': 'transaction_date',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'number': 'number',  # noqa: E501
+        'contact': 'contact',  # noqa: E501
         'total_amount': 'total_amount',  # noqa: E501
         'remaining_credit': 'remaining_credit',  # noqa: E501
+        'line_items': 'line_items',  # noqa: E501
         'currency': 'currency',  # noqa: E501
         'remote_created_at': 'remote_created_at',  # noqa: E501
         'remote_updated_at': 'remote_updated_at',  # noqa: E501
         'payments': 'payments',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -161,12 +171,16 @@ class CreditNote(ModelNormal):
             remote_data ([RemoteData], none_type): [optional]  # noqa: E501
             transaction_date (datetime, none_type): The credit note's transaction date.. [optional]  # noqa: E501
             status (object, none_type): The credit note's status.. [optional]  # noqa: E501
+            number (str, none_type): The credit note's number.. [optional]  # noqa: E501
+            contact (str, none_type): The credit note's contact.. [optional]  # noqa: E501
             total_amount (float, none_type): The credit note's total amount.. [optional]  # noqa: E501
             remaining_credit (float, none_type): The credit note's remaining credit.. [optional]  # noqa: E501
+            line_items ([CreditNoteLineItem]): [optional]  # noqa: E501
             currency (object, none_type): The credit note's currency.. [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's credit note was created.. [optional]  # noqa: E501
             remote_updated_at (datetime, none_type): When the third party's credit note was updated.. [optional]  # noqa: E501
             payments ([str, none_type]): Array of `Payment` object IDs. [optional]  # noqa: E501
+            remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

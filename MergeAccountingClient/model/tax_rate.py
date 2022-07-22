@@ -84,6 +84,7 @@ class TaxRate(ModelNormal):
             'description': (str, none_type,),  # noqa: E501
             'total_tax_rate': (float, none_type,),  # noqa: E501
             'effective_tax_rate': (float, none_type,),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -98,6 +99,7 @@ class TaxRate(ModelNormal):
         'description': 'description',  # noqa: E501
         'total_tax_rate': 'total_tax_rate',  # noqa: E501
         'effective_tax_rate': 'effective_tax_rate',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -152,6 +154,7 @@ class TaxRate(ModelNormal):
             description (str, none_type): The tax rate's description.. [optional]  # noqa: E501
             total_tax_rate (float, none_type): The tax rate's total tax rate.. [optional]  # noqa: E501
             effective_tax_rate (float, none_type): The tax rate's effective tax rate.. [optional]  # noqa: E501
+            remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

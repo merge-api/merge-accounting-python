@@ -14,7 +14,9 @@ Name | Type | Description | Notes
 **contact** | **str, none_type** |  | [optional] 
 **total_amount** | **float, none_type** | The expense&#39;s total amount. | [optional] 
 **currency** | **object, none_type** | The expense&#39;s currency. | [optional] 
+**memo** | **str, none_type** | The expense&#39;s private note. | [optional] 
 **lines** | [**[ExpenseLine]**](ExpenseLine.md) |  | [optional] [readonly] 
+**remote_was_deleted** | **bool** | Indicates whether or not this object has been deleted by third party webhooks. | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
