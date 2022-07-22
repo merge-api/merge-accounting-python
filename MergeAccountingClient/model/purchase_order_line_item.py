@@ -56,6 +56,16 @@ class PurchaseOrderLineItem(ModelNormal):
     }
 
     validations = {
+        ('tax_amount',): {
+            'regex': {
+                'pattern': r'^\d{0,32}(?:\.\d{0,16})?$',  # noqa: E501
+            },
+        },
+        ('total_line_amount',): {
+            'regex': {
+                'pattern': r'^\d{0,32}(?:\.\d{0,16})?$',  # noqa: E501
+            },
+        },
     }
 
     additional_properties_type = None
@@ -77,6 +87,10 @@ class PurchaseOrderLineItem(ModelNormal):
             'unit_price': (float, none_type,),  # noqa: E501
             'quantity': (float, none_type,),  # noqa: E501
             'item': (str, none_type,),  # noqa: E501
+            'account': (str, none_type,),  # noqa: E501
+            'tracking_category': (str, none_type,),  # noqa: E501
+            'tax_amount': (str, none_type,),  # noqa: E501
+            'total_line_amount': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -89,6 +103,10 @@ class PurchaseOrderLineItem(ModelNormal):
         'unit_price': 'unit_price',  # noqa: E501
         'quantity': 'quantity',  # noqa: E501
         'item': 'item',  # noqa: E501
+        'account': 'account',  # noqa: E501
+        'tracking_category': 'tracking_category',  # noqa: E501
+        'tax_amount': 'tax_amount',  # noqa: E501
+        'total_line_amount': 'total_line_amount',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -141,6 +159,10 @@ class PurchaseOrderLineItem(ModelNormal):
             unit_price (float, none_type): The line item's unit price.. [optional]  # noqa: E501
             quantity (float, none_type): The line item's quantity.. [optional]  # noqa: E501
             item (str, none_type): [optional]  # noqa: E501
+            account (str, none_type): The purchase order line item's account.. [optional]  # noqa: E501
+            tracking_category (str, none_type): The purchase order line item's associated tracking category.. [optional]  # noqa: E501
+            tax_amount (str, none_type): The purchase order line item's tax amount.. [optional]  # noqa: E501
+            total_line_amount (str, none_type): The purchase order line item's total amount.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

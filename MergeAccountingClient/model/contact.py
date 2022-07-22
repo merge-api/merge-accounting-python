@@ -93,6 +93,7 @@ class Contact(ModelNormal):
             'remote_updated_at': (datetime, none_type,),  # noqa: E501
             'addresses': ([str, none_type],),  # noqa: E501
             'phone_numbers': ([AccountingPhoneNumber],),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -114,6 +115,7 @@ class Contact(ModelNormal):
         'remote_updated_at': 'remote_updated_at',  # noqa: E501
         'addresses': 'addresses',  # noqa: E501
         'phone_numbers': 'phone_numbers',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -175,6 +177,7 @@ class Contact(ModelNormal):
             remote_updated_at (datetime, none_type): When the third party's contact was updated.. [optional]  # noqa: E501
             addresses ([str, none_type]): `Address` object IDs for the given `Contacts` object.. [optional]  # noqa: E501
             phone_numbers ([AccountingPhoneNumber]): `AccountingPhoneNumber` object for the given `Contacts` object.. [optional]  # noqa: E501
+            remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

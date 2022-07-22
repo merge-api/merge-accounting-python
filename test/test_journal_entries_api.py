@@ -36,6 +36,12 @@ class TestJournalEntriesApi(unittest.TestCase):
         """
         pass
 
+    def test_journal_entries_meta_post_retrieve(self):
+        """Test case for journal_entries_meta_post_retrieve
+
+        """
+        pass
+
     def test_journal_entries_retrieve(self):
         """Test case for journal_entries_retrieve
 

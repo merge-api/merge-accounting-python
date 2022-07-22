@@ -14,7 +14,9 @@ import unittest
 from unittest.mock import MagicMock
 
 import MergeAccountingClient
+from MergeAccountingClient.model.credit_note_line_item import CreditNoteLineItem
 from MergeAccountingClient.model.remote_data import RemoteData
+globals()['CreditNoteLineItem'] = CreditNoteLineItem
 globals()['RemoteData'] = RemoteData
 from MergeAccountingClient.model.credit_note import CreditNote
 from MergeAccountingClient.api_client import ApiClient
