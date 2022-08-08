@@ -58,6 +58,7 @@ class AddressesApi(object):
 
             Keyword Args:
                 include_remote_data (bool): Whether to include the original data Merge fetched from the third-party to produce these models.. [optional]
+                remote_fields (str): Which fields should be returned in non-normalized form.. [optional] if omitted the server will use the default value of "type"
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -124,6 +125,7 @@ class AddressesApi(object):
                     'x_account_token',
                     'id',
                     'include_remote_data',
+                    'remote_fields',
                 ],
                 'required': [
                     'x_account_token',
@@ -132,6 +134,7 @@ class AddressesApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'remote_fields',
                 ],
                 'validation': [
                 ]
@@ -140,6 +143,10 @@ class AddressesApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('remote_fields',): {
+
+                        "TYPE": "type"
+                    },
                 },
                 'openapi_types': {
                     'x_account_token':
@@ -148,16 +155,20 @@ class AddressesApi(object):
                         (str,),
                     'include_remote_data':
                         (bool,),
+                    'remote_fields':
+                        (str,),
                 },
                 'attribute_map': {
                     'x_account_token': 'X-Account-Token',
                     'id': 'id',
                     'include_remote_data': 'include_remote_data',
+                    'remote_fields': 'remote_fields',
                 },
                 'location_map': {
                     'x_account_token': 'header',
                     'id': 'path',
                     'include_remote_data': 'query',
+                    'remote_fields': 'query',
                 },
                 'collection_format_map': {
                 }

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **description** | **str, none_type** | The tax rate&#39;s description. | [optional] 
 **total_tax_rate** | **float, none_type** | The tax rate&#39;s total tax rate. | [optional] 
 **effective_tax_rate** | **float, none_type** | The tax rate&#39;s effective tax rate. | [optional] 
+**remote_was_deleted** | **bool** | Indicates whether or not this object has been deleted by third party webhooks. | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

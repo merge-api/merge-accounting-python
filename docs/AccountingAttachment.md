@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **remote_data** | [**[RemoteData], none_type**](RemoteData.md) |  | [optional] [readonly] 
 **file_name** | **str, none_type** | The attachment&#39;s name. | [optional] 
 **file_url** | **str, none_type** | The attachment&#39;s url. | [optional] 
+**remote_was_deleted** | **bool** | Indicates whether or not this object has been deleted by third party webhooks. | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

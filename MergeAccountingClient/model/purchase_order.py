@@ -87,11 +87,15 @@ class PurchaseOrder(ModelNormal):
             'issue_date': (datetime, none_type,),  # noqa: E501
             'delivery_date': (datetime, none_type,),  # noqa: E501
             'delivery_address': (str, none_type,),  # noqa: E501
+            'customer': (str, none_type,),  # noqa: E501
+            'vendor': (str, none_type,),  # noqa: E501
+            'memo': (str, none_type,),  # noqa: E501
             'total_amount': (float, none_type,),  # noqa: E501
             'currency': (object, none_type,),  # noqa: E501
             'line_items': ([PurchaseOrderLineItem],),  # noqa: E501
             'remote_created_at': (datetime, none_type,),  # noqa: E501
             'remote_updated_at': (datetime, none_type,),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -107,11 +111,15 @@ class PurchaseOrder(ModelNormal):
         'issue_date': 'issue_date',  # noqa: E501
         'delivery_date': 'delivery_date',  # noqa: E501
         'delivery_address': 'delivery_address',  # noqa: E501
+        'customer': 'customer',  # noqa: E501
+        'vendor': 'vendor',  # noqa: E501
+        'memo': 'memo',  # noqa: E501
         'total_amount': 'total_amount',  # noqa: E501
         'currency': 'currency',  # noqa: E501
         'line_items': 'line_items',  # noqa: E501
         'remote_created_at': 'remote_created_at',  # noqa: E501
         'remote_updated_at': 'remote_updated_at',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -167,11 +175,15 @@ class PurchaseOrder(ModelNormal):
             issue_date (datetime, none_type): The purchase order's issue date.. [optional]  # noqa: E501
             delivery_date (datetime, none_type): The purchase order's delivery date.. [optional]  # noqa: E501
             delivery_address (str, none_type): The purchase order's delivery address.. [optional]  # noqa: E501
+            customer (str, none_type): The purchase order's customer.. [optional]  # noqa: E501
+            vendor (str, none_type): The purchase_order's vendor.. [optional]  # noqa: E501
+            memo (str, none_type): A memo attached to the purchase order.. [optional]  # noqa: E501
             total_amount (float, none_type): The purchase order's total amount.. [optional]  # noqa: E501
             currency (object, none_type): The purchase order's currency.. [optional]  # noqa: E501
             line_items ([PurchaseOrderLineItem]): [optional]  # noqa: E501
             remote_created_at (datetime, none_type): When the third party's purchase order note was created.. [optional]  # noqa: E501
             remote_updated_at (datetime, none_type): When the third party's purchase order note was updated.. [optional]  # noqa: E501
+            remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

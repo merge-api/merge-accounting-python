@@ -79,6 +79,8 @@ class InvoiceLineItemRequest(ModelNormal):
             'quantity': (float, none_type,),  # noqa: E501
             'total_amount': (float, none_type,),  # noqa: E501
             'item': (str, none_type,),  # noqa: E501
+            'account': (str, none_type,),  # noqa: E501
+            'tracking_category': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -93,6 +95,8 @@ class InvoiceLineItemRequest(ModelNormal):
         'quantity': 'quantity',  # noqa: E501
         'total_amount': 'total_amount',  # noqa: E501
         'item': 'item',  # noqa: E501
+        'account': 'account',  # noqa: E501
+        'tracking_category': 'tracking_category',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -147,6 +151,8 @@ class InvoiceLineItemRequest(ModelNormal):
             quantity (float, none_type): The line item's quantity.. [optional]  # noqa: E501
             total_amount (float, none_type): The line item's total amount.. [optional]  # noqa: E501
             item (str, none_type): [optional]  # noqa: E501
+            account (str, none_type): [optional]  # noqa: E501
+            tracking_category (str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

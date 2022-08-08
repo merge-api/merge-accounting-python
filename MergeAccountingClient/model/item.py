@@ -88,6 +88,7 @@ class Item(ModelNormal):
             'purchase_account': (str, none_type,),  # noqa: E501
             'sales_account': (str, none_type,),  # noqa: E501
             'remote_updated_at': (datetime, none_type,),  # noqa: E501
+            'remote_was_deleted': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -106,6 +107,7 @@ class Item(ModelNormal):
         'purchase_account': 'purchase_account',  # noqa: E501
         'sales_account': 'sales_account',  # noqa: E501
         'remote_updated_at': 'remote_updated_at',  # noqa: E501
+        'remote_was_deleted': 'remote_was_deleted',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -164,6 +166,7 @@ class Item(ModelNormal):
             purchase_account (str, none_type): [optional]  # noqa: E501
             sales_account (str, none_type): [optional]  # noqa: E501
             remote_updated_at (datetime, none_type): When the third party's item note was updated.. [optional]  # noqa: E501
+            remote_was_deleted (bool): Indicates whether or not this object has been deleted by third party webhooks.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

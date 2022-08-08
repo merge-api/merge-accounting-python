@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **issue_date** | **datetime, none_type** | The invoice&#39;s issue date. | [optional] 
 **due_date** | **datetime, none_type** | The invoice&#39;s due date. | [optional] 
 **paid_on_date** | **datetime, none_type** | The invoice&#39;s paid date. | [optional] 
+**memo** | **str, none_type** | The invoice&#39;s private note. | [optional] 
 **currency** | **object, none_type** | The invoice&#39;s currency. | [optional] 
 **total_discount** | **float, none_type** | The invoice&#39;s total discount. | [optional] 
 **sub_total** | **float, none_type** | The invoice&#39;s sub-total. | [optional] 

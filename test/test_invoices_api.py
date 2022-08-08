@@ -36,6 +36,12 @@ class TestInvoicesApi(unittest.TestCase):
         """
         pass
 
+    def test_invoices_meta_post_retrieve(self):
+        """Test case for invoices_meta_post_retrieve
+
+        """
+        pass
+
     def test_invoices_retrieve(self):
         """Test case for invoices_retrieve
 

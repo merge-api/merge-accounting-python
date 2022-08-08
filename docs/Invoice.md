@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **issue_date** | **datetime, none_type** | The invoice&#39;s issue date. | [optional] 
 **due_date** | **datetime, none_type** | The invoice&#39;s due date. | [optional] 
 **paid_on_date** | **datetime, none_type** | The invoice&#39;s paid date. | [optional] 
+**memo** | **str, none_type** | The invoice&#39;s private note. | [optional] 
 **currency** | **object, none_type** | The invoice&#39;s currency. | [optional] 
 **total_discount** | **float, none_type** | The invoice&#39;s total discount. | [optional] 
 **sub_total** | **float, none_type** | The invoice&#39;s sub-total. | [optional] 
@@ -23,6 +24,7 @@ Name | Type | Description | Notes
 **remote_updated_at** | **datetime, none_type** | When the third party&#39;s invoice entry was updated. | [optional] 
 **payments** | **[str, none_type]** | Array of &#x60;Payment&#x60; object IDs. | [optional] 
 **line_items** | [**[InvoiceLineItem]**](InvoiceLineItem.md) |  | [optional] [readonly] 
+**remote_was_deleted** | **bool** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
